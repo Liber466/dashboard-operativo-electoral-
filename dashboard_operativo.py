@@ -54,29 +54,30 @@ st.markdown("""
         padding:14px; box-shadow:var(--shadow); margin-bottom:16px; }
 
     .module-grid { display:grid; grid-template-columns:repeat(3,minmax(190px,1fr)); gap:14px; margin-bottom:16px; }
+    a.module-card, a.sub-card,
     button.module-card, button.sub-card { background:var(--panel); border:1px solid var(--line); border-radius:var(--radius);
         box-shadow:var(--shadow); cursor:pointer; font:inherit; color:var(--ink); text-align:left;
         width:100%; padding:0; }
-    button.module-card { display:grid; gap:10px; padding:16px; border-left:0; border-top:8px solid var(--jne-gray);
+    a.module-card, button.module-card { display:grid; gap:10px; padding:16px; border-left:0; border-top:8px solid var(--jne-gray);
         min-height:156px; }
-    button.module-card.active { outline:2px solid rgba(201,21,23,.22); }
-    button.module-card[data-module="material"] { border-top-color:var(--jne-orange); }
-    button.module-card[data-module="jornada"] { border-top-color:var(--jne-teal); }
-    button.module-card[data-module="otras"] { border-top-color:var(--jne-coral); }
-    button.module-card .module-head { display:flex; align-items:center; justify-content:space-between; gap:10px; }
-    button.module-card h2 { font-size:17px; margin:0; color:var(--ink) !important; }
-    button.module-card .badge { border:1px solid #d6e2ee; border-radius:999px; padding:5px 9px; color:#344054;
+    a.module-card.active, button.module-card.active { outline:2px solid rgba(201,21,23,.22); }
+    a.module-card[data-module="material"], button.module-card[data-module="material"] { border-top-color:var(--jne-orange); }
+    a.module-card[data-module="jornada"], button.module-card[data-module="jornada"] { border-top-color:var(--jne-teal); }
+    a.module-card[data-module="otras"], button.module-card[data-module="otras"] { border-top-color:var(--jne-coral); }
+    a.module-card .module-head, button.module-card .module-head { display:flex; align-items:center; justify-content:space-between; gap:10px; }
+    a.module-card h2, button.module-card h2 { font-size:17px; margin:0; color:var(--ink) !important; }
+    a.module-card .badge, button.module-card .badge { border:1px solid #d6e2ee; border-radius:999px; padding:5px 9px; color:#344054;
         background:#fff; font-size:12px; white-space:nowrap; }
-    button.module-card p { margin:0; color:var(--muted); line-height:1.35; font-size:13px; }
+    a.module-card p, button.module-card p { margin:0; color:var(--muted); line-height:1.35; font-size:13px; }
     .module-kpis { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; }
     .mini-kpi { background:#f8fafc; border:1px solid #e9eef5; border-radius:7px; padding:8px; }
     .mini-kpi strong { display:block; font-size:18px; line-height:1.05; color:var(--ink); font-weight:700; }
     .mini-kpi span { color:var(--muted); font-size:11px; }
-    button.sub-card { display:grid; gap:8px; padding:12px; min-height:124px; align-content:start; box-shadow:none; }
-    button.sub-card.active { border-color:var(--jne-red); background:#fff7f7; box-shadow:inset 0 0 0 1px rgba(201,21,23,.2); }
-    button.sub-card h4 { margin:0; font-size:14px; line-height:1.25; color:var(--ink) !important; }
-    button.sub-card p { color:var(--muted); font-size:12px; line-height:1.35; margin:0; }
-    button.sub-card .badge { white-space:normal; line-height:1.3; border:1px solid #d6e2ee; border-radius:999px;
+    a.sub-card, button.sub-card { display:grid; gap:8px; padding:12px; min-height:124px; align-content:start; box-shadow:none; }
+    a.sub-card.active, button.sub-card.active { border-color:var(--jne-red); background:#fff7f7; box-shadow:inset 0 0 0 1px rgba(201,21,23,.2); }
+    a.sub-card h4, button.sub-card h4 { margin:0; font-size:14px; line-height:1.25; color:var(--ink) !important; }
+    a.sub-card p, button.sub-card p { color:var(--muted); font-size:12px; line-height:1.35; margin:0; }
+    a.sub-card .badge, button.sub-card .badge { white-space:normal; line-height:1.3; border:1px solid #d6e2ee; border-radius:999px;
         padding:5px 9px; color:#344054; background:#fff; font-size:12px; }
     .sub-metrics { display:grid; grid-template-columns:repeat(3,1fr); gap:6px; margin-top:2px; }
     .sub-metrics span { border:1px solid #e4ebf3; border-radius:7px; background:#fbfdff; color:#344054;
@@ -92,11 +93,9 @@ st.markdown("""
     .panel-title h3::before { content:""; display:inline-block; width:8px; height:18px; border-radius:2px;
         background:var(--jne-red); margin-right:8px; vertical-align:-3px; }
     .panel-title span { color:var(--muted); font-size:12px; }
-    .card-unit { position:relative; overflow:hidden; }
-    .card-unit [data-testid="stButton"] { position:absolute; top:0; left:0; width:100%; height:100%; opacity:0; z-index:3; }
-    .card-unit [data-testid="stButton"] button { width:100% !important; height:100% !important; cursor:pointer;
-        box-shadow:none !important; border:none !important; background:transparent !important; min-height:0 !important; padding:0 !important; }
-    .card-unit > div:last-child { margin-top:-10px; }
+    a.module-card, a.sub-card { text-decoration:none; display:block; cursor:pointer; }
+    a.module-card:hover, a.sub-card:hover { opacity:0.96; }
+    a.module-card.active, a.sub-card.active { cursor:default; }
     .detail-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin:12px 0; }
     .metric { border:1px solid var(--line); border-radius:var(--radius); padding:10px 12px; background:#fbfdff; }
     .metric span { color:var(--muted); font-size:12px; }
@@ -619,12 +618,6 @@ def render_filter_bar(df_local):
     if dist != "Todos": mask &= df_local["distrito"] == dist
     return df_local[mask].copy()
 
-def _on_mod_click(key):
-    st.session_state.modulo = key
-    st.session_state.subcard = MODULOS[key]["subcards"][0][0]
-    st.session_state.local_id = None
-    st.session_state.mesa = None
-
 def render_module_cards(df_local, df_mat, df_jorn, df_actividades):
     cols = st.columns(3)
     for idx, (key, mod) in enumerate(MODULOS.items()):
@@ -641,10 +634,10 @@ def render_module_cards(df_local, df_mat, df_jorn, df_actividades):
                 avg_pct = int((subset["estado"] == "Completado").sum() / max(total, 1) * 100)
             pending = int((subset["estado"] == "Pendiente").sum()) if "estado" in subset.columns else 0
             activo_mod = st.session_state.modulo == key
-            card_key = f"mod_{key}"
-            st.markdown(f'<div class="card-unit" id="cu-{card_key}">', unsafe_allow_html=True)
+            mkey = key.lower()
+            mod_key = {"material": "material", "jornada": "jornada", "otras": "otras"}.get(mkey, mkey)
             st.markdown(f"""
-            <button class="module-card {'active' if activo_mod else ''}" data-module="{key.lower()}" type="button" tabindex="-1">
+            <a href="?modulo={mod_key}" class="module-card {'active' if activo_mod else ''}" data-module="{mod_key}">
                 <div class="module-head"><h2>{mod['icono']} {key}</h2><span class="badge">{len(mod['subcards'])} subcards</span></div>
                 <p>{mod['desc'][:80]}...</p>
                 <div class="module-kpis">
@@ -652,18 +645,12 @@ def render_module_cards(df_local, df_mat, df_jorn, df_actividades):
                     <div class="mini-kpi"><strong>{avg_pct}%</strong><span>Avance</span></div>
                     <div class="mini-kpi"><strong>{pending}</strong><span>Pendiente</span></div>
                 </div>
-            </button>
+            </a>
             """, unsafe_allow_html=True)
-            st.button(" ", key=card_key, on_click=_on_mod_click, args=(key,), use_container_width=True)
-            st.markdown('</div>', unsafe_allow_html=True)
-
-def _on_sub_click(skey):
-    st.session_state.subcard = skey
-    st.session_state.local_id = None
-    st.session_state.mesa = None
 
 def render_subcards():
     mod = MODULOS[st.session_state.modulo]
+    mod_key_lower = {"Material":"material","Jornada":"jornada","Otras":"otras"}[st.session_state.modulo]
     st.markdown(f"<h4 style='margin:0 0 10px;font-size:15px;color:#17202a;'>📂 Subcards: {mod['icono']} {st.session_state.modulo}</h4>", unsafe_allow_html=True)
     cols = st.columns(2)
     for idx, (skey, stitle, sdesc) in enumerate(mod["subcards"]):
@@ -673,9 +660,8 @@ def render_subcards():
             avg_pct = random.randint(45, 95)
             pend = random.randint(3, 25)
             pct_color = "#16a05d" if avg_pct >= 70 else "#f2b15f" if avg_pct >= 30 else "#c91517"
-            st.markdown(f'<div class="card-unit" id="cu-sub-{skey}">', unsafe_allow_html=True)
             st.markdown(f"""
-            <button class="sub-card {'active' if es_activa else ''}" type="button" tabindex="-1">
+            <a href="?modulo={mod_key_lower}&subcard={skey}" class="sub-card {'active' if es_activa else ''}">
                 <h4>{stitle}</h4>
                 <p>{sdesc}</p>
                 <div class="sub-metrics">
@@ -685,10 +671,8 @@ def render_subcards():
                 </div>
                 <div class="progress" aria-label="Avance {avg_pct}%"><i style="width:{avg_pct}%;background:{pct_color};"></i></div>
                 <span class="badge">{stitle[:60]}</span>
-            </button>
+            </a>
             """, unsafe_allow_html=True)
-            st.button(" ", key=f"sub_{skey}", on_click=_on_sub_click, args=(skey,), use_container_width=True)
-            st.markdown('</div>', unsafe_allow_html=True)
 
 def get_records_for_subcard(df_local_f, df_mat, df_jorn, df_actividades):
     mod = st.session_state.modulo
